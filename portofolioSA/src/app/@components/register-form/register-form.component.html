@@ -1,0 +1,53 @@
+<section class="section pb-5">
+    <div class="container">
+        <div class="row mb-5 align-items-end">
+            <div class="col-md-6" data-aos="fade-up">
+                <h2>Register</h2>
+                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut
+                officiis explicabo inventore.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-5 mb-md-0" data-aos="fade-up">
+                <form [formGroup]="form" (ngSubmit)="submit()">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input 
+                        formControlName="name"
+                        id="name"
+                        type="text"
+                        class="form-control">
+                        <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
+                            <div *ngIf="f.name.errors?.required">Name is required.</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input 
+                        formControlName="email"
+                        id="email"
+                        type="text"
+                        class="form-control">
+                        <div *ngIf="f.email.touched && f.email.invalid" class="alert alert-danger">
+                            <div *ngIf="f.email.errors?.required">Email is required.</div>
+                            <div *ngIf="f.email.errors?.email">Please, enter valid email adress</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Password</label>
+                        <input 
+                        formControlName="password"
+                        id="password"
+                        type="text"
+                        class="form-control">
+                        <div *ngIf="f.password.touched && f.password.invalid" class="alert alert-danger">
+                            <div *ngIf="f.password.errors?.required">Password is required.</div>
+                        </div>
+                    </div>
+                    <button class="button is-danger is-large" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

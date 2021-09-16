@@ -1,0 +1,51 @@
+<section class="section pb-5">
+    <div class="container">
+        <div class="row mb-5 align-items-end">
+            <div class="col-md-6" data-aos="fade-up">
+                <h2>Contact</h2>
+                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut
+                officiis explicabo inventore.
+                </p>
+            </div>
+        </div>
+    <!-- form goes here -->
+        <div class="row">
+            <div class="col-md-6 mb-5 mb-md-0" data-aos="fade-up">
+                <form (ngSubmit)="processForm()" class="php-email-form" action="../../../forms/contact.php">
+                <!-- name -->
+                    <div class="field col-md-6 form-group">
+                        <label for="name">Name</label><br>
+                        <input type="text" name="name" class="input" placeholder="Your Name" [(ngModel)]="name" required minlength="3" #nameInput="ngModel"/>
+                        <div class="help is-error" *ngIf="nameInput.invalid && nameInput.dirty">
+                            Name is required and needs to be at least 3 characters long.
+                        </div>
+                    </div>
+                <!-- email -->
+                    <div class="field col-md-6 form-group">
+                        <label for="name">Email</label>
+                        <input type="email" name="email" class="input form-control" placeholder="Your Email" [(ngModel)]="email" required email #emailInput="ngModel"/>
+                        <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+                            Needs to be a valid email.
+                        </div>
+                    </div>
+                <!-- message -->
+                    <div class="field col-md-12 form-group">
+                        <label for="name">Message</label>
+                        <textarea class="textarea form-control" name="message" cols="30" rows="10" placeholder="What's on your mind?" [(ngModel)]="message" required #messageInput="ngModel"></textarea>
+                        <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+                            Your message is required!
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="loading">Loading</div>
+                        <div class="error-message"></div>
+                        <div class="sent-message">Your message has been sent. Thank you!</div>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <button type="submit" class="button is-danger is-large">Submit</button>
+                    </div>
+                </form>   
+            </div> 
+        </div>
+    </div>
+</section>
